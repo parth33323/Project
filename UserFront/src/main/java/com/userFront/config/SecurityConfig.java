@@ -67,7 +67,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			//log in url  will be post; on failure, path will be err; login success redir to userFront; and login pg is /index
 			.formLogin().failureUrl("/index?error").defaultSuccessUrl("/userFront").loginPage("/index").permitAll()
 			.and()
-			//when trying to access /logout url; if logout successful then redir to /index?logout param; del cookies to disable the user memory func  
+			//when trying to access /logout url; if logout successful then redir to /index?logout param; del cookies to disable the user memory func
+			//023 logout param accessed in index.html to show msg 'you are logged out
 			.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/index?logout").deleteCookies("remember-me").permitAll()
 			.and()
 			//add rem me func autobox provided by spr sec
